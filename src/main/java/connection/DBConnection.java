@@ -11,14 +11,11 @@ public class DBConnection {
         return DriverManager.getConnection(url, user, password);
     }
 
-    // --- Méthode Main Illustrant la Fermeture Explicite ---
     public static void main(String[] args) {
-        Connection connection = null; // Déclaration à l'extérieur du try
+        Connection connection = null;
         try {
-            connection = getConnection(); // Ouverture de la connexion
+            connection = getConnection();
             System.out.println("✅ CONNECTED TO DATABASE");
-
-            // Logique de test ici
 
         } catch (SQLException e) {
             System.err.println("Failed to connect to database.");
@@ -26,10 +23,10 @@ public class DBConnection {
         } finally {
             if (connection != null) {
                 try {
-                    connection.close(); // Fermeture de la connexion
-                    System.out.println("🔒 Connexion fermée avec succès.");
+                    connection.close();
+                    System.out.println(" Connexion fermée avec succès.");
                 } catch (SQLException e) {
-                    System.err.println("Erreur lors de la fermeture de la connexion.");
+                    System.err.println("Errorrr");
                     e.printStackTrace();
                 }
             }
